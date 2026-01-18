@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +27,33 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark min-h-screen bg-background text-foreground`}
       >
+        <nav className="sticky top-0 z-40 w-full flex items-center justify-end py-2 px-4 dark:bg-[#0f1816]/95 backdrop-blur supports-backdrop-filter:bg-[background]/60 border-b border-border gap-2">
+          <div className="flex-1">
+            <Button asChild variant={"outline"}>
+              <Link href={`/`}>Home</Link>
+            </Button>
+          </div>
+          <Button className="ml-4" asChild>
+            <Link href={`/1/dashboard`}>
+              {/* <LayoutDashboard /> */}
+              Meu Dashboard
+            </Link>
+          </Button>
+          {/* <ModeToggle /> */}
+        </nav>
         {children}
+        <footer>
+          <div className="flex items-center justify-center p-4 bg-black text-white font-sans">
+            <span className="text-sm text-zinc-500 flex flex-col sm:flex-row gap-2 text-center">
+              <span>
+                © 2026 Craque do Pretinho Básico. All rights reserved.{" "}
+              </span>
+              <span>Desenvolvido por Welliton Luiz Becker.</span>
+            </span>
+          </div>
+        </footer>
       </body>
     </html>
   );
