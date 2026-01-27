@@ -35,9 +35,9 @@ export default function Header() {
             asChild
             variant={"ghost"}
           >
-            <Link href={`/1/dashboard`}>
+            <Link href={`/editions`}>
               <ClipboardList className="size-4" />
-              Registros
+              Edições
             </Link>
           </Button>
           <Button
